@@ -12,8 +12,8 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - .:/ml
-    working_dir: /ml
+      - .:/home/ml
+    working_dir: /home/ml
     command: ["/bin/bash"] 
     stdin_open: true # docker run -i
     tty: true        # docker run -t
