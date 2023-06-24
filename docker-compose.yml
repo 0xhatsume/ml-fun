@@ -1,0 +1,20 @@
+version: '3'
+services:
+  ml:
+    image: ml-crypto:latest
+    container_name: mlc
+    hostname: ml
+    build:
+      context: .
+      dockerfile: ./ml.Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 8888:8888
+    volumes:
+      - .:/ml
+    working_dir: /ml
+    command: ["/bin/bash"] 
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    restart: unless-stopped
