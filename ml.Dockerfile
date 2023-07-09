@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ffmpeg && \
     rm -rf /var/lib/apt/lists/*
 
+# git cmake 
+
 RUN /opt/conda/bin/conda install -y pandas scikit-learn matplotlib seaborn jupyter jupyterlab && \
     /opt/conda/bin/conda install -c conda-forge tensorboardx && \
     /opt/conda/bin/conda clean -ya
@@ -23,9 +25,12 @@ RUN mkdir -p /home/ml && chmod 1777 /home/ml
 
 ENV HOME /home/ml
 
+RUN pip install transformers sentencepiece
+
 # # tensorboard
 EXPOSE 6006
 # # jupyter notebook
 EXPOSE 8888
 
 CMD ["/bin/bash", "-c", "echo jupyter tensorboard enable --user;echo jupyter lab --no-browser --ip=0.0.0.0 --port=8888"]
+#jupyter notebook --allow-root --ip=0.0.0.0 --port=8888
