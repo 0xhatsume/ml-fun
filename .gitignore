@@ -17,6 +17,13 @@ package-lock.json
 #IDEs
 .vscode/
 .DS_Store
+.vscode-server
 
-# bash history
+# system files
 .bash_history
+.cache
+.dotnet
+.gnupg
+.ipython
+.jupyter
+.python_history
