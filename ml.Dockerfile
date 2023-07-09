@@ -32,5 +32,6 @@ EXPOSE 6006
 # # jupyter notebook
 EXPOSE 8888
 
+ENV JUPYTER_ALLOW_INSECURE_WRITES 1
 CMD ["/bin/bash", "-c", "echo jupyter tensorboard enable --user;echo jupyter lab --no-browser --ip=0.0.0.0 --port=8888"]
 #jupyter notebook --allow-root --ip=0.0.0.0 --port=8888
